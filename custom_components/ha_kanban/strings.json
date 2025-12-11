@@ -1,0 +1,177 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up HA Kanban",
+        "description": "This will set up the HA Kanban integration for managing household tasks with a beautiful Kanban board."
+      }
+    },
+    "abort": {
+      "already_configured": "HA Kanban is already configured."
+    }
+  },
+  "services": {
+    "create_board": {
+      "name": "Create Board",
+      "description": "Create a new Kanban board.",
+      "fields": {
+        "name": {
+          "name": "Name",
+          "description": "Name of the board."
+        },
+        "columns": {
+          "name": "Columns",
+          "description": "List of column names. Defaults to 'To Do', 'In Progress', 'Done'."
+        }
+      }
+    },
+    "delete_board": {
+      "name": "Delete Board",
+      "description": "Delete a Kanban board and all its contents.",
+      "fields": {
+        "board_id": {
+          "name": "Board ID",
+          "description": "ID of the board to delete."
+        }
+      }
+    },
+    "add_column": {
+      "name": "Add Column",
+      "description": "Add a new column to a board.",
+      "fields": {
+        "board_id": {
+          "name": "Board ID",
+          "description": "ID of the board."
+        },
+        "name": {
+          "name": "Name",
+          "description": "Name of the column."
+        },
+        "position": {
+          "name": "Position",
+          "description": "Position of the column (0-indexed)."
+        },
+        "color": {
+          "name": "Color",
+          "description": "Accent color for the column."
+        }
+      }
+    },
+    "reorder_columns": {
+      "name": "Reorder Columns",
+      "description": "Reorder columns in a board.",
+      "fields": {
+        "board_id": {
+          "name": "Board ID",
+          "description": "ID of the board."
+        },
+        "column_ids": {
+          "name": "Column IDs",
+          "description": "List of column IDs in the new order."
+        }
+      }
+    },
+    "delete_column": {
+      "name": "Delete Column",
+      "description": "Delete a column and all its cards.",
+      "fields": {
+        "column_id": {
+          "name": "Column ID",
+          "description": "ID of the column to delete."
+        }
+      }
+    },
+    "create_card": {
+      "name": "Create Card",
+      "description": "Create a new task card.",
+      "fields": {
+        "column_id": {
+          "name": "Column ID",
+          "description": "ID of the column to add the card to."
+        },
+        "title": {
+          "name": "Title",
+          "description": "Title of the card."
+        },
+        "description": {
+          "name": "Description",
+          "description": "Detailed description of the task."
+        },
+        "assignee": {
+          "name": "Assignee",
+          "description": "User ID to assign the task to."
+        },
+        "due_date": {
+          "name": "Due Date",
+          "description": "Due date in ISO format (YYYY-MM-DD)."
+        },
+        "labels": {
+          "name": "Labels",
+          "description": "List of labels for the card."
+        },
+        "position": {
+          "name": "Position",
+          "description": "Position in the column (0 = top)."
+        }
+      }
+    },
+    "update_card": {
+      "name": "Update Card",
+      "description": "Update an existing card's properties.",
+      "fields": {
+        "card_id": {
+          "name": "Card ID",
+          "description": "ID of the card to update."
+        },
+        "title": {
+          "name": "Title",
+          "description": "New title for the card."
+        },
+        "description": {
+          "name": "Description",
+          "description": "New description for the card."
+        },
+        "assignee": {
+          "name": "Assignee",
+          "description": "New assignee for the card."
+        },
+        "due_date": {
+          "name": "Due Date",
+          "description": "New due date in ISO format."
+        },
+        "labels": {
+          "name": "Labels",
+          "description": "New labels for the card."
+        }
+      }
+    },
+    "move_card": {
+      "name": "Move Card",
+      "description": "Move a card to a different column or position.",
+      "fields": {
+        "card_id": {
+          "name": "Card ID",
+          "description": "ID of the card to move."
+        },
+        "target_column_id": {
+          "name": "Target Column ID",
+          "description": "ID of the column to move the card to."
+        },
+        "position": {
+          "name": "Position",
+          "description": "Position in the target column (0 = top)."
+        }
+      }
+    },
+    "delete_card": {
+      "name": "Delete Card",
+      "description": "Delete a card.",
+      "fields": {
+        "card_id": {
+          "name": "Card ID",
+          "description": "ID of the card to delete."
+        }
+      }
+    }
+  }
+}
